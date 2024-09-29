@@ -15,6 +15,7 @@ class StreamLitView:
         self.files = []
 
     def run(self):
+        """Run the Streamlit application."""
         st.title("Text Miner")
 
         with st.form("upload_form", clear_on_submit=True):
@@ -37,6 +38,12 @@ class StreamLitView:
                 self.files = []
 
     def _download(self, result: list[dict[str, str]]):
+        """Download the results as an Excel file.
+
+        Args:
+            result (list[dict[str, str]]): A list of dictionaries containing the frequency of words.
+        
+        """
         if not result:
             return
         
